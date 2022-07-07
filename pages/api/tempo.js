@@ -2,16 +2,19 @@
 
 async function tempo(request, response) {
 
-    const dynamicDate = new Date();   
     
-    const locationResponse = await fetch("https://api.bigdatacloud.net/data/ip-geolocation-with-confidence?ip=&localityLanguage=en&key=bdc_6ee4dcde331b482a99a2e453c3ba4987");
-    const locatioResponseJson = await locationResponse.json();
 
-    const location = locatioResponseJson.location.city;
+    const dynamicDate = new Date();   
+
+    const cotationResponse = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL");
+    const cotationResponseJson = await cotationResponse.json()
+    const cotation = cotationResponseJson;
+
+    
 
     response.json({
         date: dynamicDate.toGMTString(),
-        location: location
+        cotation: cotation
     });
 
 }
