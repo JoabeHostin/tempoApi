@@ -14,7 +14,7 @@ async function tempo(request, response) {
     
 
     response.json({
-        Date: dynamicDate.toGMTString(),
+        DATE: dynamicDate.toGMTString(),
         USDBRL: cotationUsd,
         EURBRL: cotationEur
     });
